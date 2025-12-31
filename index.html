@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2025 - Me & Kadduu 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #000;
+            overflow-x: hidden;
+            color: white;
+            cursor: default;
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced Intro Screen */
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeOut 1s ease 4s forwards;
+            overflow: hidden;
+        }
+
+        .intro-screen h1 {
+            font-size: 4.5em;
+            color: white;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+            animation: scaleIn 1s ease, glow 2s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6) saturate(1.8) contrast(1.2);
+            animation: slowZoom 40s infinite alternate ease-in-out;
+        }
+
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+                filter: brightness(0.6) saturate(1.8);
+            }
+            100% {
+                transform: scale(1.2);
+                filter: brightness(0.8) saturate(2);
+            }
+        }
+
+        .intro-screen .names {
+            font-size: 2.5em;
+            color: #ff6b8b;
+            animation: fadeInUp 1.5s ease 0.5s backwards;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-screen .year {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff6b8b, #ff8e53, #ff6b8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideIn 1.5s ease 1s backwards;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
+            }
+            50% {
+                text-shadow: 0 0 80px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 107, 139, 0.9);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Full Screen Image Gallery */
+        .fullscreen-gallery {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .gallery-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300%;
+            height: 100%;
+            display: flex;
+            transition: transform 1.5s ease;
+        }
+
+        .gallery-slide {
+            width: 33.333%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: transform 8s ease, filter 1s ease;
+        }
+
+        .gallery-slide.active img {
+            filter: brightness(0.9);
+            transform: scale(1.1);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 60px 40px 40px;
+            background: linear-gradient(to top, rgba(15, 12, 41, 0.95), transparent);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .gallery-slide.active .slide-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-title {
+            font-size: 3em;
+            color: #ff6b8b;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-description {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #ff6b8b;
+            transform: scale(1.3);
+            border-color: #ff6b8b;
+        }
+
+        .gallery-arrows {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 10;
+        }
+
+        .arrow {
+            width: 60px;
+            height: 60px;
+            background: rgba(15, 12, 41, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .arrow:hover {
+            background: rgba(255, 107, 139, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Enhanced Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        .particle:nth-child(3n) {
+            background: #ff6b8b;
+        }
+
+        .particle:nth-child(3n+1) {
+            background: #ff8e53;
+        }
+
+        .particle:nth-child(3n+2) {
+            background: #6a11cb;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(100px * var(--direction))) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            padding-top: 40px;
+            animation: fadeIn 2s ease 4s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Love Message Section */
+        .love-message {
+            max-width: 900px;
+            margin: 0 auto 100px;
+            padding: 0 40px;
+        }
+
+        .message-header {
+            text-align: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .message-header h1 {
+            font-size: 3.8em;
+            background: linear-gradient(135deg, #ff6b8b, #ff8e53, #6a11cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .message-header .year {
+            font-size: 2.8em;
+            color: #ff8e53;
+            font-weight: bold;
+        }
+
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .message-card {
+            background: linear-gradient(145deg, rgba(15, 12, 41, 0.8), rgba(48, 43, 99, 0.6));
+            border-radius: 20px;
+            padding: 50px;
+            border-left: 6px solid #ff6b8b;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease;
+            backdrop-filter: blur(15px);
+        }
+
+        .message-card.right {
+            transform: translateX(100px);
+            border-left: none;
+            border-right: 6px solid #6a11cb;
+            margin-left: 50px;
+        }
+
+        .message-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .message-text {
+            font-size: 1.5em;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+        }
+
+        .message-text.highlight {
+            color: #ff6b8b;
+            font-style: italic;
+            font-size: 1.7em;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 107, 139, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 139, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-text.highlight::before {
+            content: '❝';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4em;
+            opacity: 0.3;
+        }
+
+        .message-text.highlight::after {
+            content: '❞';
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 4em;
+            opacity: 0.3;
+        }
+
+        .heart-divider {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 3em;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.3);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        /* Floating Images Gallery */
+        .floating-gallery-section {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(15, 12, 41, 0.9), rgba(36, 36, 62, 0.9));
+            margin: 100px 0;
+            overflow: hidden;
+            border-top: 2px solid #ff6b8b;
+            border-bottom: 2px solid #ff8e53;
+        }
+
+        .floating-gallery-title {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .floating-gallery-title h2 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #ff6b8b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .floating-gallery-title p {
+            font-size: 1.4em;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .floating-gallery-container {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .floating-image {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            filter: brightness(0.9) saturate(1.2);
+            transition: transform 0.5s ease;
+            pointer-events: auto;
+        }
+
+        .floating-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1) saturate(1.5);
+            z-index: 10;
+        }
+
+        .floating-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .floating-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 12, 41, 0.9), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .floating-image:hover .image-overlay {
+            transform: translateY(0);
+        }
+
+        .image-title {
+            font-size: 1.1em;
+            color: #ff8e53;
+            margin-bottom: 5px;
+        }
+
+        .image-date {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Our Story Section */
+        .our-story {
+            max-width: 950px;
+            margin: 0 auto 120px;
+            padding: 80px 50px;
+            background: linear-gradient(145deg, rgba(15, 12, 41, 0.9), rgba(36, 36, 62, 0.9));
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 107, 139, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .our-story.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .story-header h2 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #ff6b8b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b8b, #ff8e53);
+            border-radius: 2px;
+        }
+
+        .story-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff6b8b, #6a11cb, #ff8e53);
+            border-radius: 2px;
+        }
+
+        .story-event {
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 40px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.8s ease;
+        }
+
+        .story-event.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .story-event::before {
+            content: '';
+            position: absolute;
+            left: -46px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #ff6b8b, #ff8e53);
+            border-radius: 50%;
+            box-shadow: 0 0 25px #ff6b8b;
+            z-index: 2;
+        }
+
+        .event-date {
+            color: #ff8e53;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-text {
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .event-text.highlight {
+            color: #ff6b8b;
+            font-style: italic;
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #ff8e53;
+            background: rgba(255, 107, 139, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 60px;
+            text-align: center;
+            background: linear-gradient(145deg, rgba(255, 107, 139, 0.1), rgba(106, 17, 203, 0.1));
+            border-radius: 20px;
+            border: 2px dashed #ff6b8b;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .promise-section.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .promise-section h3 {
+            font-size: 2.8em;
+            color: #ff8e53;
+            margin-bottom: 30px;
+        }
+
+        .promise-text {
+            font-size: 2em;
+            color: #ff6b8b;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0;
+            animation: floatUp 20s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b8b, #ff8e53, #6a11cb);
+            z-index: 1000;
+            transition: width 0.1s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .message-header h1 {
+                font-size: 3.2em;
+            }
+            
+            .slide-title {
+                font-size: 2.5em;
+            }
+            
+            .floating-gallery-title h2 {
+                font-size: 2.8em;
+            }
+            
+            .floating-image {
+                width: 180px;
+                height: 270px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-screen h1 {
+                font-size: 2.8em;
+            }
+            
+            .intro-screen .names {
+                font-size: 1.8em;
+            }
+            
+            .intro-screen .year {
+                font-size: 2.2em;
+            }
+            
+            .fullscreen-gallery {
+                height: 80vh;
+            }
+            
+            .slide-title {
+                font-size: 2em;
+            }
+            
+            .slide-description {
+                font-size: 1.1em;
+            }
+            
+            .message-header h1 {
+                font-size: 2.5em;
+            }
+            
+            .message-header .year {
+                font-size: 2em;
+            }
+            
+            .message-card {
+                padding: 30px 25px;
+            }
+            
+            .message-text {
+                font-size: 1.3em;
+            }
+            
+            .floating-gallery-title h2 {
+                font-size: 2.2em;
+                padding-top: 40px;
+            }
+            
+            .floating-gallery-title p {
+                font-size: 1.2em;
+                padding: 0 20px;
+            }
+            
+            .floating-image {
+                width: 150px;
+                height: 225px;
+            }
+            
+            .story-header h2 {
+                font-size: 2.5em;
+            }
+            
+            .event-text {
+                font-size: 1.2em;
+            }
+            
+            .love-message,
+            .our-story {
+                padding: 40px 25px;
+            }
+            
+            .promise-text {
+                font-size: 1.6em;
+            }
+            
+            .arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-screen h1 {
+                font-size: 2.2em;
+                text-align: center;
+            }
+            
+            .message-header h1 {
+                font-size: 2em;
+            }
+            
+            .slide-title {
+                font-size: 1.8em;
+            }
+            
+            .message-text {
+                font-size: 1.1em;
+            }
+            
+            .floating-gallery-title h2 {
+                font-size: 1.8em;
+            }
+            
+            .floating-image {
+                width: 120px;
+                height: 180px;
+            }
+            
+            .promise-text {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-screen">
+        <div class="intro-image-container">
+            <img src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/IMG_1169.JPG?alt=media&token=5d225afa-8ec6-4a5a-9a19-e80864121c49" alt="Romantic background" class="intro-image">
+        </div>
+        <h1>🎉 Happy New Year! 🎉</h1>
+        <div class="names">Me & Kaddu</div>
+        <div class="year">2025 → 2026</div>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="particles" id="particles"></div>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="main-content">
+        <!-- Full Screen Image Gallery -->
+        <section class="fullscreen-gallery">
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-slide active">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/IMG_1169.JPG?alt=media&token=5d225afa-8ec6-4a5a-9a19-e80864121c49" alt="Our Love Story">
+                    <div class="slide-overlay">
+                        <div class="slide-title">Our Beginning ✨</div>
+                        <div class="slide-description">The moment I saw you, my life changed forever. That first glance ignited a love that would become my everything.</div>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/IMG_1425.JPG?alt=media&token=93b4ae21-72d5-440d-8486-de0f1bc70a08" alt="Our Journey">
+                    <div class="slide-overlay">
+                        <div class="slide-title">Every Moment Together 💖</div>
+                        <div class="slide-description">From endless conversations to sunset walks, every second with you has been a beautiful chapter in our story.</div>
+                    </div>
+                </div>
+                <div class="gallery-slide">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/IMG_1950.JPG?alt=media&token=99d253c8-0f5b-456e-9db8-047a3876b5cf" alt="Our Future">
+                    <div class="slide-overlay">
+                        <div class="slide-title">Our Forever Promise 🌟</div>
+                        <div class="slide-description">This year and every year after, I choose you. No matter what comes our way, my love for you only grows stronger.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-nav">
+                <div class="nav-dot active" data-slide="0"></div>
+                <div class="nav-dot" data-slide="1"></div>
+                <div class="nav-dot" data-slide="2"></div>
+            </div>
+            
+            <div class="gallery-arrows">
+                <div class="arrow prev">❮</div>
+                <div class="arrow next">❯</div>
+            </div>
+        </section>
+
+        <!-- Love Message Section -->
+        <section class="love-message">
+            <div class="message-header">
+                <h1>Happiest New Year my love, my world, my everything 💖</h1>
+                <div class="year">2025 → 2026</div>
+            </div>
+
+            <div class="message-container">
+                <div class="message-card" id="message1">
+                    <p class="message-text">
+                        Thank you for being the most precious part of my life. With you I feel safe, I feel loved, I feel complete.
+                    </p>
+                </div>
+
+                <div class="message-card right" id="message2">
+                    <p class="message-text">
+                        You are not just my girlfriend, you are my blessing from God. Every year is special, but this year is more special because you are with me.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message3">
+                    <p class="message-text highlight">
+                        I promise to love you more, care for you more, respect you more and never stop choosing you.
+                    </p>
+                </div>
+
+                <div class="message-card right" id="message4">
+                    <p class="message-text">
+                        May this year bring you endless happiness, success, peace, smiles and love… and I want to be the reason for your smile every day.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message5">
+                    <p class="message-text">
+                        You are the best thing that ever happened to me and I will never take you for granted.
+                    </p>
+                    <p class="message-text highlight">
+                        No matter how many years come and go, you will always be my favorite person, my comfort person, my forever.
+                    </p>
+                </div>
+
+                <div class="message-card right" id="message6">
+                    <p class="message-text">
+                        Thank you for standing by me, understanding me and loving me even when I am difficult.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message7">
+                    <p class="message-text">
+                        This year, I just want to hold your hand tighter, love you deeper and make more memories together.
+                    </p>
+                </div>
+
+                <div class="message-card right" id="message8">
+                    <p class="message-text highlight">
+                        You are my heart, my peace, my happiness, my whole universe.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message9">
+                    <p class="message-text">
+                        I wish I could give you everything you wish for, because you deserve the absolute best.
+                    </p>
+                </div>
+
+                <div class="message-card right" id="message10">
+                    <p class="message-text">
+                        I am proud of you, I believe in you and I will always support you.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message11">
+                    <p class="message-text">
+                        Let's make this year full of love, laughter, cuddles, long talks, surprises and unforgettable moments.
+                    </p>
+                </div>
+
+                <div class="heart-divider">💕</div>
+
+                <div class="message-card right" id="message12">
+                    <p class="message-text highlight">
+                        No matter what happens, one thing will never change — I truly love you and I always will.
+                    </p>
+                </div>
+
+                <div class="message-card" id="message13">
+                    <p class="message-text">
+                        Happy New Year baby, my queen, my soulmate… I want every New Year with you 💖
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Images Gallery -->
+        <section class="floating-gallery-section" id="floatingGallery">
+            <div class="floating-gallery-title">
+                <h2>Our Beautiful Memories ✨</h2>
+                <p>Every moment with you is a precious memory that I cherish forever. These are just a few glimpses of our beautiful journey together.</p>
+            </div>
+            <div class="floating-gallery-container" id="floatingGalleryContainer">
+                <!-- Images will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Promise Section -->
+        <section class="promise-section" id="promiseSection">
+            <h3>My Sacred Promise to You ✨</h3>
+            <div class="promise-text">
+                I will love you only and only you
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="our-story" id="ourStory">
+            <div class="story-header">
+                <h2>Our Beautiful Journey ❤️</h2>
+                <p style="font-size: 1.3em; color: rgba(255,255,255,0.8); margin-top: 15px;">How God brought us together against all odds</p>
+            </div>
+
+            <div class="story-timeline">
+                <div class="story-event" id="event1">
+                    <div class="event-date">January 2025</div>
+                    <p class="event-text">
+                        Mere iss 2025 year ki starting bahut hi bekaar huyi thi. 31st December and 1st January mai bemaar tha, meri tabiyat theek nhi thi.
+                        Fir 18th jan ko apna ghar chor ke completly new jagah par aana pada. Naye log, chota ghar... condition inti bekaar thi.
+                    </p>
+                    <p class="event-text highlight">
+                        Aas paas bhi koi bhi nhi tha... tere dada dadi ki baatein samajh nhi aati thi, sab log aise hi mean type the.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event2">
+                    <div class="event-date">The Struggle</div>
+                    <p class="event-text">
+                        2 months tak ghar se bahar nhi nikla - sirf market and market se ghar par bas. Park vagera kuch nhi, kisi se baat nhi karni,
+                        ek dum boring se life thi yaaar. Sachi mai, 6 months se i wanted mac studio, i wanted monitors, i wanted iphone.
+                        Literally saying paise uss time bhi the but aa nhi paa rha tha.
+                    </p>
+                    <p class="event-text highlight">
+                        My life was not hell but it was very very bekaar thi.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event3">
+                    <div class="event-date">The Prayer</div>
+                    <p class="event-text">
+                        I prayed to God: "Bhyii mereko nhi rhena noida mai, mereko to apne ghar par jaana hai meerut vapis."
+                        I was so hopeless... and and and and fir ek din...
+                    </p>
+                </div>
+
+                <div class="story-event" id="event4">
+                    <div class="event-date">The Miracle - I Saw You ✨</div>
+                    <p class="event-text">
+                        Fir ek din i saw you... maine tereko dekha and dekhta hi rhe gya. Maine socha "Bhyiii what is this? 
+                        Koi itna sundar kaise ho sakta hai?"
+                    </p>
+                    <p class="event-text highlight">
+                        First i wished ki tereko sahi se dekh pau... vo poora huya.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event5">
+                    <div class="event-date">Getting to Know You</div>
+                    <p class="event-text">
+                        Fir i wanted ki ek baar tera name pta chala, kidhar rhete ho, kya karte ho, kitne din ke liye aaye ho ye pta chale.
+                        Aur fir Bhagwan ji ne meri sunn li! Tere baare mai i got to know each and everything.
+                    </p>
+                    <p class="event-text highlight">
+                        Uss din to Bhagwan ji ne mere par itni kripa kari ki tereko 4 years ke liye mere pass hi bhej diya!
+                    </p>
+                </div>
+
+                <div class="story-event" id="event6">
+                    <div class="event-date">Our First Conversation</div>
+                    <p class="event-text">
+                        Fir i wanted ki tu mere se baat kare... lovely ko tere se baat karni thi kisi baare mai.
+                        Since tu insta nhi chalati thi, maine bola ki tu mere insta se message kar de.
+                        Fir "have had" vali baat par i messaged you... uss din se humari baat honi start ho gyi!
+                    </p>
+                </div>
+
+                <div class="story-event" id="event7">
+                    <div class="event-date">Love Blossoms 💖</div>
+                    <p class="event-text">
+                        Fir i wished ki ye bhi mere se pyaar karna start kar de... and fir vo bhi tereko ho gya!
+                        We hugged... we kissed... we held hands... and I felt complete.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event8">
+                    <div class="event-date">Beautiful Moments</div>
+                    <p class="event-text">
+                        We talked for hours... we did VC for hours... we met for hours... we went to see twilight for hours.
+                        And I love you sooooo muchhhhh....
+                    </p>
+                    <p class="event-text highlight">
+                        Bhagwan ji ne vo diya mereko jo mereko chaiye tha... I wanted you and Bhagwan ji gave you to me.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event9">
+                    <div class="event-date">Your Unconditional Love</div>
+                    <p class="event-text">
+                        fir maine tere pyaar par doubt kiya but fir bhi tune mereko chora nhi mere se pyaar aur jyada kiya... 
+                        maine tere par trust nhi kiya fir tune mereko chora nhi but mere se aur bhi jyada aur bhi jyada pyaar kiya tune mereko and mereko trust dilaya... 
+                        duniya ke samne mereko dikhaya apne dosto ko mere baare mai btaya and fir tune mereko tune khud par trust dilaya...
+                    </p>
+                    <p class="event-text highlight">
+                        i love you sooo much i loveeee youuuuuuu sooo much...
+                    </p>
+                </div>
+
+                <div class="story-event" id="event10">
+                    <div class="event-date">My Wish for This Year</div>
+                    <p class="event-text">
+                        iss year mai i just want ki mai aur tu saath rhe... humara pyaar aur jyada increase ho... 
+                        humko nazar na lage kisi ki bhi.. koi aur problem naa aye mai aur tu roj mile pyaar se aaram se... 
+                        pudding (the shihtzu dog) aajaye.. hum dono saath mai the best best year spend kare
+                    </p>
+                </div>
+
+                <div class="story-event" id="event11">
+                    <div class="event-date">The Truth About Our Love</div>
+                    <p class="event-text">
+                        Bhyiii people say ki yaaar eventually pyaar kam ho jaata hai... Bhyiii what the fuck is this yaaar!
+                        First day par tereko dekha tha tab bhi teri ek jhalak ke liye pagal tha, aaj bhi tere liye pagal hu.
+                    </p>
+                    <p class="event-text highlight">
+                        Yaar jab se mile hai, meri life is the bestest and the happiest I swear.
+                    </p>
+                </div>
+
+                <div class="story-event" id="event12">
+                    <div class="event-date">My Complete Happiness</div>
+                    <p class="event-text">
+                        I got what I wanted - maine apna sab kuch hi khareed liya hai. 
+                        I literally got everything that I wanted.
+                    </p>
+                    <p class="event-text highlight">
+                        But yaaar tereko shuru se lekar hi abhi tak meri wajah se problems hi problem mili hai bas...
+                        yaar you faced soo much... inte risk liye sirf mere se milne ke liye i love you soooo much....
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Image URLs for floating gallery (20 images)
+        const imageUrls = [
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2F2B11DEF5-19DB-493F-9AD1-5C0E52E34914.JPG?alt=media&token=a73694bd-3828-4693-bcb9-47004bd02491",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1141%202.JPG?alt=media&token=6e21f313-b717-4d39-8ff0-c43b3c111672",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1141.jpg?alt=media&token=c5cdd754-7a1a-4d51-92aa-8e7cf4706de9",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1169.JPG?alt=media&token=a5131ede-8d99-4ca8-9a38-ef6461cd8460",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1425.JPG?alt=media&token=50a279fa-6b73-408f-a57c-5a9017e18ab1",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1172.JPG?alt=media&token=9417e67c-5653-4dbc-ae8b-cd7fdd5e4255",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1423.JPG?alt=media&token=575ed74c-3f3f-44af-9bb0-6e605f232732",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1949.JPG?alt=media&token=6cdaf55a-83e5-4bff-8539-fa0da47ad12b",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1949.JPG?alt=media&token=6cdaf55a-83e5-4bff-8539-fa0da47ad12b",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1171.JPG?alt=media&token=97db72c1-68fb-4a31-ae1e-5c078aa0573d",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1172.JPG?alt=media&token=9417e67c-5653-4dbc-ae8b-cd7fdd5e4255",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1403.HEIC?alt=media&token=40221b99-aaaf-4642-9255-c853997af633",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1427.JPG?alt=media&token=49db0a5e-2705-4a53-8037-a219bf049b51",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1508.JPG?alt=media&token=b645df7e-26a3-4670-a5f7-d74012aaf951",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1429.JPG?alt=media&token=ae51f8c8-4f60-46f0-9a41-37efc19ea470",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1949.JPG?alt=media&token=6cdaf55a-83e5-4bff-8539-fa0da47ad12b",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1403.HEIC?alt=media&token=40221b99-aaaf-4642-9255-c853997af633",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1507.JPG?alt=media&token=2489fe27-d926-4ac1-a329-f44b49abf5d8",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1172.JPG?alt=media&token=9417e67c-5653-4dbc-ae8b-cd7fdd5e4255",
+            "https://firebasestorage.googleapis.com/v0/b/perwork.appspot.com/o/kinggg%2FIMG_1451.JPG?alt=media&token=dd497037-c703-4f69-9c88-17603c7d355b",
+        ];
+
+        // Image titles for the floating gallery
+        const imageTitles = [
+            "Our First Meeting",
+            "Beautiful Sunset",
+            "Forever Together",
+            "Starry Night",
+            "Morning Coffee",
+            "Beach Memories",
+            "City Lights",
+            "Mountain View",
+            "Romantic Dinner",
+            "Winter Wonderland",
+            "Spring Blossoms",
+            "Summer Beach",
+            "Autumn Leaves",
+            "Winter Snow",
+            "Spring Flowers",
+            "Summer Sunshine",
+            "Autumn Colors",
+            "Winter Magic",
+            "Spring Romance",
+            "Summer Love"
+        ];
+
+        // Create enhanced floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 100; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 8 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.bottom = '-20px';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.setProperty('--direction', Math.random() > 0.5 ? 1 : -1);
+            particlesContainer.appendChild(particle);
+        }
+
+        // Create floating hearts
+        const floatingHeartsContainer = document.getElementById('floatingHearts');
+        const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💞', '💘'];
+        
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            floatingHeartsContainer.appendChild(heart);
+        }
+
+        // Scroll progress indicator
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Fullscreen Gallery Slider
+        const gallerySlider = document.getElementById('gallerySlider');
+        const slides = document.querySelectorAll('.gallery-slide');
+        const dots = document.querySelectorAll('.nav-dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            gallerySlider.style.transform = `translateX(-${index * 33.333}%)`;
+            
+            // Update active states
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(currentSlide);
+        }
+
+        // Auto slide every 7 seconds
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 7000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Initialize slider
+        goToSlide(0);
+        startAutoSlide();
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoSlide();
+            startAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        });
+
+        // Pause auto-slide on hover
+        gallerySlider.addEventListener('mouseenter', stopAutoSlide);
+        gallerySlider.addEventListener('mouseleave', startAutoSlide);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                stopAutoSlide();
+                startAutoSlide();
+            }
+        });
+
+        // Floating Images Gallery
+        const floatingGalleryContainer = document.getElementById('floatingGalleryContainer');
+        let activeImages = [];
+        let imageIndex = 0;
+
+        // Create floating images
+        function createFloatingImage() {
+            const imgIndex = imageIndex % imageUrls.length;
+            const img = document.createElement('div');
+            img.className = 'floating-image';
+            img.innerHTML = `
+                <img src="${imageUrls[imgIndex]}" alt="${imageTitles[imgIndex]}">
+                <div class="image-overlay">
+                    <div class="image-title">${imageTitles[imgIndex]}</div>
+                    <div class="image-date">Memory ${imgIndex + 1}</div>
+                </div>
+            `;
+            
+            // Random starting position at the left side
+            const startY = Math.random() * 60 + 20; // Between 20% and 80%
+            const speed = Math.random() * 2 + 3; // Between 3 and 5 seconds
+            const scale = Math.random() * 0.3 + 0.7; // Between 0.7 and 1.0
+            const rotation = Math.random() * 20 - 10; // Between -10 and 10 degrees
+            
+            img.style.left = '-250px';
+            img.style.top = `${startY}%`;
+            img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
+            img.style.zIndex = Math.floor(Math.random() * 5) + 1;
+            
+            floatingGalleryContainer.appendChild(img);
+            activeImages.push(img);
+            
+            // Animate from left to right
+            setTimeout(() => {
+                img.style.transition = `all ${speed}s linear`;
+                img.style.left = 'calc(100% + 250px)';
+                img.style.opacity = '1';
+                
+                // Remove image after animation
+                setTimeout(() => {
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        if (img.parentNode) {
+                            img.parentNode.removeChild(img);
+                            activeImages = activeImages.filter(item => item !== img);
+                        }
+                    }, 500);
+                }, speed * 1000);
+            }, 100);
+            
+            // Increment index for next image
+            imageIndex++;
+        }
+
+        // Start floating images animation
+        function startFloatingImages() {
+            // Create initial batch of 5 images
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => createFloatingImage(), i * 500);
+            }
+            
+            // Continue creating images every 2 seconds
+            setInterval(() => {
+                // Keep only 5 images active at a time
+                if (activeImages.length < 5) {
+                    createFloatingImage();
+                }
+            }, 2000);
+        }
+
+        // Start floating images when gallery is in view
+        const floatingGalleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startFloatingImages();
+                    floatingGalleryObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        floatingGalleryObserver.observe(document.getElementById('floatingGallery'));
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Add staggered animation for message cards
+                    if (entry.target.classList.contains('message-card')) {
+                        const messageCards = document.querySelectorAll('.message-card');
+                        messageCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 200);
+                        });
+                    }
+                    
+                    // Add staggered animation for story events
+                    if (entry.target.classList.contains('story-event')) {
+                        const storyEvents = document.querySelectorAll('.story-event');
+                        storyEvents.forEach((event, index) => {
+                            setTimeout(() => {
+                                event.classList.add('visible');
+                            }, index * 300);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.message-card').forEach(card => observer.observe(card));
+        document.querySelectorAll('.story-event').forEach(event => observer.observe(event));
+        document.querySelectorAll('.message-header').forEach(header => observer.observe(header));
+        document.querySelectorAll('.our-story').forEach(story => observer.observe(story));
+        document.querySelectorAll('.promise-section').forEach(section => observer.observe(section));
+
+        // Add parallax effect to gallery slides
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const gallery = document.querySelector('.fullscreen-gallery');
+            const galleryTop = gallery.offsetTop;
+            const galleryHeight = gallery.offsetHeight;
+            
+            if (scrolled > galleryTop && scrolled < galleryTop + galleryHeight) {
+                const rate = (scrolled - galleryTop) * 0.1;
+                gallerySlider.style.transform = `translateX(-${currentSlide * 33.333}%) translateY(${rate}px)`;
+            }
+        });
+
+        // Add click to navigate to next section
+        gallerySlider.addEventListener('click', () => {
+            const messageSection = document.querySelector('.love-message');
+            window.scrollTo({
+                top: messageSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+
+        // Add special effect when promise section is in view
+        const promiseObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add floating hearts around promise
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => {
+                            const heart = document.createElement('div');
+                            heart.className = 'floating-heart';
+                            heart.textContent = '💖';
+                            heart.style.left = Math.random() * 100 + '%';
+                            heart.style.fontSize = '30px';
+                            heart.style.animationDuration = '5s';
+                            floatingHeartsContainer.appendChild(heart);
+                            
+                            // Remove after animation
+                            setTimeout(() => {
+                                heart.remove();
+                            }, 5000);
+                        }, i * 200);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        promiseObserver.observe(document.querySelector('.promise-section'));
+
+        // Auto-play animations on page load
+        window.addEventListener('load', () => {
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.message-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 200);
+                });
+            }, 500);
+        });
+
+        // Add click effect to floating images
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.floating-image')) {
+                const img = e.target.closest('.floating-image');
+                img.style.transform += ' scale(1.2)';
+                setTimeout(() => {
+                    img.style.transform = img.style.transform.replace(' scale(1.2)', '');
+                }, 300);
+                
+                // Create heart explosion
+                for (let i = 0; i < 8; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = '💖';
+                    heart.style.left = `${e.clientX}px`;
+                    heart.style.top = `${e.clientY}px`;
+                    heart.style.fontSize = '20px';
+                    heart.style.animationDuration = '2s';
+                    heart.style.zIndex = '1000';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 2000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
